@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Slider</title>
+<style>
+  .slider {
+    max-width: 500px;
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+  }
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  .slide {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  .slide img {
+    width: 100%;
+    height: auto;
+  }
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(9, 1, 1);
+  }
+  .prev {
+    left: 0;
+  }
+  .next {
+    right: 0;
+  }
+</style>
+</head>
+<body>
+<div class="slider">
+  <div class="slides">
+    <div class="slide"><img src="https://tse1.mm.bing.net/th?id=OIP.vcU_GTxIdqQAGRJsvlVbuQHaFW&pid=Api&P=0&h=180" alt="Image 1"></div>
+    <div class="slide"><img src="https://tse4.mm.bing.net/th?id=OIP.-qzOi_8rwYQ4Xtxg38IgQwHaEo&pid=Api&P=0&h=180" alt="Image 2"></div>
+    <div class="slide"><img src="http://1.bp.blogspot.com/-cyUpufR6eYo/TwCrSmzNFSI/AAAAAAAAALI/CU1NLcZqUl8/s1600/Sport+cars+wallpapers+free+download.jpg" alt="Image 3"></div>
+    <div class="slide"><img src="https://tse2.mm.bing.net/th?id=OIP.d1l7qU27rngofFNL0GZDrwHaEh&pid=Api&P=0&h=180" alt="Image 4"></div>
+    <div class="slide"><img src="https://tse3.mm.bing.net/th?id=OIP.g65fbVofHlXcFNqdwz5T_gHaEo&pid=Api&P=0&h=180" alt="Image 5"></div>
+    <!-- Add more images here -->
+  </div>
+  <span class="prev" onclick="plusSlides(-1)">❮</span>
+  <span class="next" onclick="plusSlides(1)">❯</span>
+</div>
+
+<script>
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    let i;
+    const slides = document.getElementsByClassName("slide");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slides[slideIndex-1].style.display = "block";
+  }
+</script>
+</body>
+</html>
